@@ -7,7 +7,20 @@ class Book {
     protected string $category;
     protected string $date_of_onset;
     protected string $abstract;
-    protected int $user_id;
+    protected ?tring $user_id;
+
+    // construct
+    public function __construct(?array $data=NULL) {
+        if($data) {
+            foreach($data as $key => $value) {
+                $method = "set". ucfirst($key);
+                if(method_exists($this, $method)) {
+                    $value = htmlspecialchars($value);
+                    $this->$method($value);
+                }
+            }
+        }
+    }
 
     // seters
     public function setId(int $id) {
@@ -34,7 +47,7 @@ class Book {
         $this->abstract = $abstract;user_id
     }
 
-    public function setUser_id(int $user_id) {
+    public function setUser_id(?string $user_id=NULL) {
         $this->user_id = $user_id;
     }
 
