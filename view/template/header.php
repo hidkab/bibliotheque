@@ -24,7 +24,7 @@
 <body>
 
 <header>
-  <div class="card text-center bg bg-secondary">
+  <div class="card text-center bg bg-dark">
         <div class="card-body text-light">
             <h1 class="card-title py-4">Bibliothèque pour tous</h1>
             <p class="card-text">Emptuntez votre livre préfèré </p>
