@@ -6,6 +6,7 @@ class userManager {
   // Récupère tous les utilisateurs
   public function getUsers() {
 
+    
   }
 
   // Récupère un utilisateur par son id

@@ -14,22 +14,29 @@ class BookManager {
       return $result;
   }
   // Récupère un livre
-  public function getBook() {
-    
+  public function getBook($id) {
+    $query= $this->db->prepare('SELECT * FROM book WHERE id = :id');
+    $result = $query->execute([
+      "id" => $id
+    ]);
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+      $result = new Book($result);
+      return $result;
+  
   }
 
   // Ajoute un nouveau livre
   public function addBook(Book $book) {
-    $query = $this->db->prepare('INSERT INTO book("title", "author", "category", "date_of_onset", "abstract", "user_id" ) 
-    VALUES(:title,author, :category, :date_of_onset, :abstract, :user_id )
+    $query = $this->db->prepare('INSERT INTO book(title, author, category, date_of_onset, abstract) 
+    VALUES(:title, :author, :category, :date_of_onset, :abstract)
     ');
     $result = $query->execute([
       "title" => $book-> getTitle(),
       "author" => $book-> getAuthor(),
       "category" => $book-> getCategory(),
       "date_of_onset" => $book-> getDate_of_onset(),
-      "abstract" => $book-> getAbstract(),
-      "user_id" => $book-> getUser_id()
+      "abstract" => $book-> getAbstract()
+      // "user_id" => $book-> getUser_id()
     ]);
     return $result;
 

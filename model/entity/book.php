@@ -80,5 +80,4 @@ class Book {
         return $this->user_id;
     }
     
-
 }
