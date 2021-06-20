@@ -2,6 +2,7 @@
 <?php include "template/nav.php";?>
 
 <h4 class="text-center py-5">Détail du livre</h4>
+<?php if(isset($book)): ?>
 <table class="table table-striped table-hover table-bordered text-center m-auto">
     <thead class="bg bg-dark text-danger">
         <tr>
@@ -40,6 +41,12 @@
         <button type="submit" name="addPerson" class="btn btn-success">Pêter le livre</button>
     </div>
 </form>
-
+<?php else : ?>
+    <div class="alert alert-secondary text-center text-danger" role="alert">
+        <?php echo $error; ?>
+        <p>Pourquoi ne pas retourner à l'accueil ?</p>
+        <a href="index.php" class="btn btn-dark text-danger">Accueil</a>
+    </div>
+<?php endif ?>
 <?php include "template/footer.php";?>
 
