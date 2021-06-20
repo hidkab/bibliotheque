@@ -42,7 +42,7 @@
         <input type="number" name="user_id" class="form-control" id="validationDefault01">
     </div>
     <div class="col-auto m-auto p-3">
-        <button type="submit" name="addPerson" class="btn btn-success">Pêter le livre</button>
+        <button type="submit" name="addPerson" class="btn btn-success">Prêter le livre</button>
     </div>
 </form>
 
