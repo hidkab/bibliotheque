@@ -7,7 +7,6 @@ class BookManager {
   public function getBooks() {
       $query= $this->db->query('SELECT * FROM book');
       $result = $query->fetchAll(PDO::FETCH_ASSOC);
-      // var_dump($result);
       foreach($result as $key => $book ) {
         $result[$key] = new Book($book);
       }
@@ -36,7 +35,6 @@ class BookManager {
       "category" => $book-> getCategory(),
       "date_of_onset" => $book-> getDate_of_onset(),
       "abstract" => $book-> getAbstract()
-      // "user_id" => $book-> getUser_id()
     ]);
     return $result;
 
