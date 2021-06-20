@@ -7,67 +7,77 @@ class Book {
     protected string $category;
     protected string $date_of_onset;
     protected string $abstract;
-    protected int $user_id;
+    protected ?string $user_id;
+
+    // construct
+    public function __construct(?array $data=NULL) {
+        if($data) {
+            foreach($data as $key => $value) {
+                $method = "set". ucfirst($key);
+                if(method_exists($this, $method)) {
+                    $value = htmlspecialchars($value);
+                    $this->$method($value);
+                }
+            }
+        }
+    }
 
     // seters
     public function setId(int $id) {
         $this->id = $id;
     }
 
-    public function setTitle(int $title) {
-        $this->id = $title;
+    public function setTitle(string $title) {
+        $this->title = $title;
     }
 
-    public function setAuthor(int $author) {
+    public function setAuthor(string $author) {
         $this->author = $author;
     }
 
-    public function setCategory(int $category) {
+    public function setCategory(string $category) {
         $this->category = $category;
     }
 
-    public function setDate_of_onset(int $date_of_onset) {
+    public function setDate_of_onset(string $date_of_onset) {
         $this->date_of_onset = $date_of_onset;
     }
 
-    public function setAbstract(int $abstract) {
-        $this->abstract = $abstract;user_id
+    public function setAbstract(string $abstract) {
+        $this->abstract = $abstract;
     }
 
-    public function setUser_id(int $user_id) {
+    public function setUser_id(?string $user_id=NULL) {
         $this->user_id = $user_id;
     }
 
     // getters
-    public function ():int {
+    public function getId():int {
         return $this->id;
     }
     
-    public function ():string {
+    public function getTitle():string {
         return $this->title;
     }
 
-    public function ():string {
+    public function getAuthor():string {
         return $this->author;
     }
 
-    public function ():string {
+    public function getCategory():string {
         return $this->category;
     }
 
-    public function ():string {
+    public function getDate_of_onset():string {
         return $this->date_of_onset;
     }
 
-    public function ():string {
+    public function getAbstract():string {
         return $this->abstract;
     }
     
-    public function ():int {
+    public function getUser_id():string {
         return $this->user_id;
     }
     
-
-
-
 }

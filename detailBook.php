@@ -1,14 +1,11 @@
 <?php
 require "model/entity/book.php";
 require "model/bookManager.php";
+
+$id = $_GET["id"];
 // Controlleur qui gérer l'affichage de tous les livres
 $bookManager = new BookManager();
+$book = $bookManager->getBook($id);
+// var_dump($book);
 
-if(!empty($_POST)) {
-    $book = new Book($_POST);
-    $bookManager->addBook($book);
-}
-
-$books = $bookManager->getBooks();
-
-require "view/indexView.php";
+require "view/livreView.php";

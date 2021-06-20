@@ -2,7 +2,7 @@
 
   <footer class="bg-dark text-white text-center py-5">
     <div class="container">
-      <p>Mentions légales</p>
+      <p><a class="link-info" href="#">Le réglement interne de la bibliothèque</a></p>
     </div>
   </footer>
 
