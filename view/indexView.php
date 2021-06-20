@@ -29,7 +29,7 @@
                 <td><?php echo $book->getDate_of_onset() ?></td>
                 <td><?php echo $book->getAbstract() ?></td>
                 <td><?php echo $book->getUser_id() ?></td>
-                <td><a class="btn btn-info m-auto" href="detailBook.php?id=<?php echo $book->getId() ?>">Voir</a></td>
+                <td><a class="btn btn-info m-auto" href="Book.php?id=<?php echo $book->getId() ?>">Voir</a></td>
         </tr>
             <?php endforeach; ?>
     </tbody>
